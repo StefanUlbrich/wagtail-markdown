@@ -7,7 +7,9 @@ supported (just add `WAGTAILMARKDOWN_USE_MATH = True` to your settings).
 However, not everything works yet:
 
 * Full-screen mode of the editor (required for side-by-side) does not overlay the side bar
-* Math is not rendered in the preview panel (MathJax is loaded but EasyMDE does not process math)
+* Math is not rendered in the preview panel 
+    * MathJax is loaded but EasyMDE does not process math)
+    * Considering adding a ajax call to the pymarkdown renderer (WYSIWYG)
 
 ## wagtail-markdown: Markdown fields and blocks for Wagtail
 
