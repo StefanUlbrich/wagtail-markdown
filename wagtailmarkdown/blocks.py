@@ -8,6 +8,7 @@
 # warranty.
 #
 from django import forms
+from django.conf import settings
 
 from .utils import render_markdown
 from .widgets import MarkdownTextarea
@@ -29,14 +30,22 @@ class MarkdownBlock(TextBlock):
 
     @property
     def media(self):
+        js = [
+            'wagtailmarkdown/js/easymde.attach.js',
+            'wagtailmarkdown/js/easymde.min.js',
+        ]
+
+        if getattr(settings, 'WAGTAILMARKDOWN_USE_MATH', False):
+            js += [
+                'wagtailmarkdown/js/MathJax.js'
+                'wagtailmarkdown/js/arithmatex.js'
+            ]
+
         return forms.Media(
-            css={
+            css = {
                 'all': (
                     'wagtailmarkdown/css/easymde.min.css',
                 )
             },
-            js=(
-                'wagtailmarkdown/js/easymde.min.js',
-                'wagtailmarkdown/js/easymde.attach.js',
-            )
+            js = js
         )

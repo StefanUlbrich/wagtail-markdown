@@ -1,3 +1,14 @@
+# About
+
+This is a fork of [Torchboxes](https://github.com/torchbox/wagtail-markdown).
+It supports markdown extensions to be configured and includes the [EasyMDE](https://github.com/Ionaru/easy-markdown-editor#configuration) editor. In addition, rendering of formulas with MathJax v3 is
+supported (just add `WAGTAILMARKDOWN_USE_MATH = True` to your settings). 
+
+However, not everything works yet:
+
+* Full-screen mode of the editor (required for side-by-side) does not overlay the side bar
+* Math is not rendered in the preview panel (MathJax is loaded but EasyMDE does not process math)
+
 ## wagtail-markdown: Markdown fields and blocks for Wagtail
 
 Tired of annoying rich text editors getting in the way of your content

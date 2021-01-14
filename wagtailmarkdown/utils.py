@@ -151,6 +151,13 @@ def _get_markdown_kwargs():
         ]
     }
 
+    if getattr(settings, 'WAGTAILMARKDOWN_USE_MATH', False):
+        markdown_kwargs['extensions'] += ['pymdownx.arithmatex']
+        markdown_kwargs['extension_configs'].update({
+            'pymdownx.arithmatex': {'generic': True}
+        })
+
+
     if hasattr(settings, 'WAGTAILMARKDOWN_EXTENSIONS'):
         markdown_kwargs['extensions'] += settings.WAGTAILMARKDOWN_EXTENSIONS
 

@@ -18,3 +18,9 @@ register = template.Library()
 @register.filter(name='markdown')
 def markdown(value):
     return render_markdown(value)
+
+# Template tag to load math-related javascript
+
+@register.inclusion_tag('wagtailmarkdown/load_markdown_math.html')
+def load_markdown_math():
+    return {}
